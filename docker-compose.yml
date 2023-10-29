@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  nextjs-app:
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    container_name: lex-api
+    working_dir: /lex-api/bot
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/data
+    networks:
+      - nextjs-network
+networks:
+  nextjs-network:
+    driver: bridge
