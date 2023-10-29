@@ -1,24 +1,27 @@
 import {
-  LexRuntimeV2Client,
-  GetSessionCommand,
+  LexRuntimeV2,
+  RecognizeTextCommand,
 } from "@aws-sdk/client-lex-runtime-v2";
 
-const client = new LexRuntimeV2Client({ region: "us-east-1" }); // Specify your desired AWS region.
+const {
+  AWS_BOT_REGION_SERVER,
+  AWS_BOT_ID,
+  AWS_BOT_ALIAS_ID,
+  AWS_BOT_LOCALE_ID,
+} = process.env;
 
-const params = {
-  botId: "yourBotId",
-  botAliasId: "yourBotAliasId",
-  localeId: "en_US",
-  sessionState: "yourSessionState",
-  text: "user input text",
-};
+export const lexRuntimeClient = new LexRuntimeV2({
+  region: AWS_BOT_REGION_SERVER!,
+});
 
-export const getSeesion = () => {
-  const command = new GetSessionCommand({
-    botAliasId: process.env.AWS_BOT_ALIAS_ID,
-    botId: process.env.AWS_BOT_ID!,
-    localeId: process.env.AWS_BOT_LOCALE_ID,
-    sessionId: "$6716gge731ge3",
+export const getRecognizeCMD = (sessionId: string, text: string) => {
+  return new RecognizeTextCommand({
+    botId: AWS_BOT_ID,
+    botAliasId: AWS_BOT_ALIAS_ID,
+    localeId: AWS_BOT_LOCALE_ID,
+    sessionId,
+    text,
   });
-  return command;
 };
+
+//const data = await lexRuntimeClient.send(cmd);
