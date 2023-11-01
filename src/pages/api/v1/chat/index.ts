@@ -14,6 +14,9 @@ export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
     const kommunicateResponse = formatKommunicateMessageResponse(data.messages);
     res.status(200).json(kommunicateResponse);
   } catch (error) {
+    console.log(error);
     res.status(500).send(error);
   }
 };
+
+export default POST;
