@@ -8,9 +8,15 @@ const {
   AWS_BOT_ID,
   AWS_BOT_ALIAS_ID,
   AWS_BOT_LOCALE_ID,
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY,
 } = process.env;
 
 export const lexRuntimeClient = new LexRuntimeV2({
+  credentials: {
+    accessKeyId: AWS_ACCESS_KEY_ID!,
+    secretAccessKey: AWS_SECRET_ACCESS_KEY!,
+  },
   region: AWS_BOT_REGION_SERVER!,
 });
 
@@ -23,5 +29,3 @@ export const getRecognizeCMD = (sessionId: string, text: string) => {
     text,
   });
 };
-
-//const data = await lexRuntimeClient.send(cmd);

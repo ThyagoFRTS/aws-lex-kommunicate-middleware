@@ -6,7 +6,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
   //const { kommunicate_message } = req.body;
   const kommunicateRequest: KommunicateAPIRequest = req.body;
-  console.log(kommunicateRequest);
   const { message, from: userId } = kommunicateRequest;
 
   const command = getRecognizeCMD(userId, message);
