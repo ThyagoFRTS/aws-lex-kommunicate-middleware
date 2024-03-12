@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Kommunicate AWS-Lex Middleware
 
-## Getting Started
+This middleware serves as a bridge between Kommunicate, a customer support platform, and AWS Lex V2, a natural language understanding service. The project addresses the limitation of Kommunicate's integration with AWS Lex, which lacks support for Brazilian Portuguese language configuration.
 
-First, run the development server:
+## Purpose
+
+Kommunicate offers integration with AWS Lex for conversational AI capabilities. However, the native integration does not cover Brazilian Portuguese language settings. This middleware fills the gap by enabling seamless communication between Kommunicate and AWS Lex for Brazilian Portuguese language interactions.
+
+## Technologies Used
+
+- Next.js
+- TypeScript
+
+## Setup
+
+### Prerequisites
+
+1. **AWS Lex Bot**: Create an AWS Lex bot and obtain necessary information.
+2. **API Credentials**: Generate API credentials with appropriate permissions.
+
+### Environment Variables
+
+Ensure you have the following environment variables set. Refer to the `.env.example` file for a template.
+
+- `AWS_ACCESS_KEY_ID`: Your AWS access key ID.
+- `AWS_SECRET_ACCESS_KEY`: Your AWS secret access key.
+- `AWS_REGION`: The AWS region where your Lex bot is deployed.
+- `LEX_BOT_ID`: The unique identifier for your AWS Lex bot.
+
+For newer versions of the application, the environment variables starting with `AWS_IAM_` may no longer be required.
+
+### Installation
+
+1. Clone the repository.
+```bash
+git clone https://github.com/your/repository.git
+```
+2. Install dependencies
+```bash
+npm install
+```
+
+### Usage
+
+Start the middleware server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+By default, the server runs on port 3000. You can configure the port using the PORT environment variable.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Integration with Kommunicate
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. In your Kommunicate dashboard, navigate to Bot Integration settings.
+2. Choose "Custom Bot" and provide the webhook URL pointing to your middleware server.
+3. Configure other settings as per your requirements.
+4. Save the configuration.
