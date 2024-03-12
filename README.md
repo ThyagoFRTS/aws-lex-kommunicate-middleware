@@ -1,6 +1,6 @@
 # Kommunicate AWS-Lex Middleware
 
-This middleware serves as a bridge between Kommunicate, a customer support platform, and AWS Lex V2, a natural language understanding service. The project addresses the limitation of Kommunicate's integration with AWS Lex, which lacks support for Brazilian Portuguese language configuration.
+This middleware serves as a bridge between Kommunicate, a customer support platform, and AWS Lex V2, a natural language understanding service. The project addresses the limitation of Kommunicate's integration with AWS Lex, which lacks support for other non deafult Kommunicate language list, like Brazilian Portuguese language configuration.
 
 ## Purpose
 
