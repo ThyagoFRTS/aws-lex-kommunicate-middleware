@@ -4,8 +4,7 @@ This middleware serves as a bridge between Kommunicate, a customer support platf
 
 ## Purpose
 
-ex for conversational AI capabilities. However, the
-Kommunicate offers integration with AWS Lnative integration does not cover Brazilian Portuguese language settings. This middleware fills the gap by enabling seamless communication between Kommunicate and AWS Lex for Brazilian Portuguese and other language interactions.
+Kommunicate offers integration with AWS Lex for conversational AI capabilities. However, the native integration does not cover Brazilian Portuguese language settings. This middleware fills the gap by enabling seamless communication between Kommunicate and AWS Lex for Brazilian Portuguese and other languages interactions.
 
 ## Technologies Used
 
